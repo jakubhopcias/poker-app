@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(28, 28, 28);
+  --foreground: #eeecec;
 }
 
 @theme inline {
@@ -12,15 +12,54 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-alexandria);
+}
+h1{
+    font-size:56px;
+    text-transform: uppercase;
+}
+h2{
+    font-size:46px;
+}
+*{
+    transition: .3s;;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    gap:20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+   border: 0;
+   border-radius: 12px;
+}
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+input{
+    width:200px;
+    background-color: rgba(174,174,174,0.3);
+    border-radius: 12px;
+    border:solid white 1px;
+    color:#fff;
+    padding:20px 12px;
+}
+input[type='number']{
+    max-width: 40px;
+    
 }
