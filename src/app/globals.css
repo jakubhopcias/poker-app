@@ -3,6 +3,8 @@
 :root {
   --background: rgb(28, 28, 28);
   --foreground: #eeecec;
+
+  --primary:#3612bb;
 }
 
 @theme inline {
@@ -17,53 +19,58 @@ body {
   color: var(--foreground);
   font-family: var(--font-alexandria);
 }
-h1{
-    font-size:56px;
-    text-transform: uppercase;
+h1 {
+  font-size: 56px;
+  text-transform: uppercase;
 }
-h2{
-    font-size:46px;
+h2 {
+  font-size: 46px;
 }
-*{
-    transition: .3s;;
+* {
+  transition: 0.3s;
 }
-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100dvh;
-    gap:20px;
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  gap: 20px;
 }
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
-   border: 0;
-   border-radius: 12px;
+  border: 0;
+  border-radius: 12px;
 }
-th, td {
-    padding: 15px;
-    text-align: center;
+th,
+td {
+  padding: 15px;
+  text-align: center;
 }
-input{
-    width:200px;
-    background-color: rgba(174,174,174,0.3);
-    border-radius: 12px;
-    border:solid white 1px;
-    color:#fff;
-    padding:20px 12px;
+input {
+  width: 200px;
+  background-color: rgba(174, 174, 174, 0.3);
+  border-radius: 12px;
+  border: solid white 1px;
+  color: #fff;
+  padding: 20px 12px;
 }
-input[type='number']{
-    max-width: 40px;
-    
+input[type="number"] {
+  max-width: 40px;
 }
-p{
-    max-width: 600px;
-    text-align: center;
+@media screen and (min-width: 758px) {
+  input[type="number"] {
+    max-width: 80px;
+  }
+}
+p {
+  max-width: 600px;
+  text-align: center;
 }
