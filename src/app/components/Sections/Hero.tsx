@@ -3,7 +3,6 @@ export default function Hero() {
         <section className="max-w-[90%] m-auto p-8 rounded-2xl">
                 <h1>Pokerek</h1>
                 <p>Przed grą w pokera nie zbierajcie pieniędzy, w tabeli widoczne są wypłaty po odjęciu dotychczasowych wpłat.</p>
-                <a href="#info">Informacje</a>
                 <p >~ by january</p>
             </section>
     );
