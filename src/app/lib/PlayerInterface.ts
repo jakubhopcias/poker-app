@@ -1,5 +1,6 @@
-export default interface PlayerInterface{
-    name:string,
-    bets:number,
-    chips:number,
+export default interface PlayerInterface {
+  name: string;
+  bets: number;
+  chips: number;
+  money: number;
 }

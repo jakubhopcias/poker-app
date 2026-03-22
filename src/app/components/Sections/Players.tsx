@@ -1,36 +1,20 @@
 "use client";
-import { useEffect, useState } from "react";
-import Plus from "../Plus";
+import { useState } from "react";
+import ActionButton from "../Plus";
+
 import PlayerInterface from "@/app/lib/PlayerInterface";
+import { useGameStore } from "@/app/store/gameStore";
 
 export default function Players() {
   const [name, setName] = useState("");
-  const [players, setPlayers] = useState<PlayerInterface[]>([]);
+  const { players, addPlayer, updateBet } = useGameStore();
 
-  function addPlayer() {
-    setPlayers([...players, { name: name, bets: 1, chips: 0 }]);
+  const handleAddPlayer = () => {
+    if (!name.trim()) return;
+    addPlayer(name);
     setName("");
-    localStorage.setItem(
-      "players",
-      JSON.stringify([...players, { name: name, bets: 1, chips: 0 }])
-    );
-  }
-  useEffect(() => {
-    localStorage.getItem("players") &&
-      setPlayers(JSON.parse(localStorage.getItem("players")!));
-  }, []);
+  };
 
-  function addBet(bet: number, player: string) {
-    setPlayers(
-      players.map((p) => (p.name === player ? { ...p, bets: bet } : p))
-    );
-    localStorage.setItem(
-      "players",
-      JSON.stringify(
-        players.map((p) => (p.name === player ? { ...p, bets: bet } : p))
-      )
-    );
-  }
   return (
     <section id="players">
       <h2>Gracze</h2>
@@ -41,13 +25,11 @@ export default function Players() {
         type="text"
         name="name"
         value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
+        onChange={(e) => setName(e.target.value)}
         required
       />
 
-      <Plus onClick={addPlayer} />
+      <ActionButton char="+" onClick={handleAddPlayer} />
 
       <h2>Dodaj wpisowe</h2>
       <table>
@@ -56,20 +38,28 @@ export default function Players() {
             <th>Gracz</th>
             <th>Zakłady</th>
             <th>Dodaj zakład</th>
+            <th>Usuń zakład</th>
           </tr>
         </thead>
         <tbody>
-          {players.map((player: any, index: number) => {
-            return (
-              <tr key={index}>
-                <td>{player.name}</td>
-                <td>{player.bets}</td>
-                <td>
-                  <Plus onClick={() => addBet(player.bets + 1, player.name)} />
-                </td>
-              </tr>
-            );
-          })}
+          {players.map((player: PlayerInterface, index: number) => (
+            <tr key={index}>
+              <td>{player.name}</td>
+              <td>{player.bets}</td>
+              <td>
+                <ActionButton
+                  char="+"
+                  onClick={() => updateBet(player.name, 1)}
+                />
+              </td>
+              <td>
+                <ActionButton
+                  char="-"
+                  onClick={() => updateBet(player.name, -1)}
+                />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </section>
