@@ -13,7 +13,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
+html{
+  scroll-behavior: smooth;
+}
 body {
   background: var(--background);
   color: var(--foreground);
@@ -73,4 +75,10 @@ input[type="number"] {
 p {
   max-width: 600px;
   text-align: center;
+}
+.primary-btn{
+  background-color: var(--primary);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 12px;
 }
