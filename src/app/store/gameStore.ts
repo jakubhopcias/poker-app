@@ -22,6 +22,7 @@ export const useGameStore = create<GameState>()(
       entryFee: 10,
       chipsValue: 20,
 
+      
       addPlayer: (name) => {
         set((state) => ({
           players: [...state.players, { name, bets: 1, chips: 0, money: 0 }],
