@@ -1,5 +1,5 @@
 "use client";
-import calculateMoney from "@/app/lib/CalculateMoney";
+import calculateMoney from "@/app/lib/calculateMoney";
 import PlayerInterface from "@/app/lib/PlayerInterface";
 import { useGameStore } from "@/app/store/gameStore";
 
